@@ -10,25 +10,28 @@ $(window).on("load resize", function(){
 });
 
 
-// bh = $('#banner').height();
-// wh = $(window).height();
-// bp = 20;
+bh = $('#banner').height();
+wh = $(window).height();
+bp = 20;
 
-// function getVisible() {    
-//     var $el = $('#contact'),
-//         scrollTop = $(this).scrollTop(),
-//         scrollBot = scrollTop + $(this).height(),
-//         elTop = $el.offset().top,
-//         elBottom = elTop + $el.outerHeight(),
-//         visibleTop = elTop < scrollTop ? scrollTop : elTop,
-//         visibleBottom = elBottom > scrollBot ? scrollBot : elBottom,
-//         visible = (visibleTop - visibleBottom)*(-1);
-//         visible2 = wh - bh - visible; //Distane between banner and contact
-//     if (visible+bh>wh){
-//     	bp += visible2/4;
-//     	$(".navbar").css({"padding": + bp + "px 20px"});
-// 	}
-// }
+function getVisible() {    
+    var $el = $('#contact'),
+        scrollTop = $(this).scrollTop(),
+        scrollBot = scrollTop + $(this).height(),
+        elTop = $el.offset().top,
+        elBottom = elTop + $el.outerHeight(),
+        visibleTop = elTop < scrollTop ? scrollTop : elTop,
+        visibleBottom = elBottom > scrollBot ? scrollBot : elBottom,
+        visible = (visibleTop - visibleBottom)*(-1);
+        dif = wh - bh - visible; //Distane between banner and contact
+        console.log(dif);
+    if (dif<0){
+    	// bp += visible2/4;
+    	$("#banner").css({"top": + dif + "px"});
+    	console.log('daddy');
+	}else{
+		$("#banner").css({"top": "0px"});
+	}
+}
 
-// $(window).on('scroll', getVisible);
-
+$(window).on('scroll', getVisible);
