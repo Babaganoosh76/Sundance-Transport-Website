@@ -1,15 +1,15 @@
 var hw, hh, hp;
 
-$(window).on("load resize", function(){
-	hw = $('#title').width();
-	hh = hw/8;
-	hp = hh/2;
-	// $('#title').height(hh);
-	$('#title').css({"padding": + hp +"px 25px"});
-});
+// $(window).on("load resize", function(){
+// 	hw = $('#title').width();
+// 	hh = hw/8;
+// 	hp = hh/2;
+// 	// $('#title').height(hh);
+// 	$('#title').css({"padding": + hp +"px 25px"});
+// });
 
 function getVisible() {    
-    var $el = $('#contact'),
+    var $el = $('#footer'),
         scrollTop = $(this).scrollTop(),
         scrollBot = scrollTop + $(this).height(),
         elTop = $el.offset().top,
