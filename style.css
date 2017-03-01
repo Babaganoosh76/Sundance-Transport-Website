@@ -220,7 +220,6 @@ input, textarea {
 	background-color: #e4742e;
 }
 
-/* SMALL */
 @media screen and (max-width: 768px) {
 	.col-sm-4 {
 		text-align: center;
@@ -254,8 +253,10 @@ input, textarea {
 	}
 }
 
-/* EXTRA SMALL */
 @media screen and (max-width: 480px) {
+	h1 {
+		font-size: 40px;
+	}
 	#title {
 		padding: 25px 10px;
 	}
@@ -276,7 +277,4 @@ input, textarea {
 		height: 25%;
 		right: 25%;
 	}
-	/*.profpic img {
-		width: 150px;
-	}*/
 }
