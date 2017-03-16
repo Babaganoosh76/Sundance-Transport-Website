@@ -1,5 +1,6 @@
 * {
-	font-family: 'Orbitron', sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
 }
 h1 {
 	font-size: 60px;
@@ -18,29 +19,18 @@ h3 {
 	font-weight: 700;
 }
 h4 {
-	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 }
 body {
 	line-height: 1.8;
-	/*color: #818181;*/
 	background-color: #ffffff;
-}
-li {
-	font-family: 'Open Sans', sans-serif;
 }
 p {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 }
-p i {
-	font-family: 'Open Sans', sans-serif;
-}
-u {
-	font-family: 'Open Sans', sans-serif;
-}
-input, textarea {
-	font-family: 'Open Sans', sans-serif;
+h1, h2, h3, .navbar li a {
+	font-family: 'Orbitron', sans-serif;
 }
 .bg-grey {
 	background-color: #f6f6f6;
@@ -50,9 +40,11 @@ input, textarea {
 }
 .container-fluid {
 	padding: 40px 50px;
+	box-shadow: 0 3px 20px #888888;
 }
 
-#banner {
+/*FIRST BANNER*/
+#banner1 {
 	z-index: 10;
 	position: fixed;
 	top: 0;
@@ -80,7 +72,6 @@ input, textarea {
 	padding: 20px 10px;
 }
 .navbar li a {
-	/*border-top: 1px solid #ffffff;*/
 	color: #ffffff;
 	text-align: center;
 	margin: 0;
@@ -92,35 +83,33 @@ input, textarea {
 	background-color: #ffffff;
 }
 
+/*SECOND BANNER*/
 .navbar-toggle {
 	border: 0;
 }
-
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
 	background-color: #000000;
 }
-
 .navbar-default .navbar-nav li a {
 	color: #ffffff;
 }
-
 .navbar-default .navbar-nav li a:hover, .navbar-default .navbar-nav li a:focus, .navbar-default .navbar-nav .active a {
 	color: #000000;
 	background-color: #ffffff;
 }
-
 .navbar-fixed-top {
 	padding: 5px;
 }
 .navbar-header {
-	/*border: 1px solid black;*/
 	overflow: hidden;
 }
 .navbar-brand{
 	padding: 0;
 }
 
+/*TITLE*/
 #title {
+	position: relative;
 	background-image: url('pics/header.jpg');
 	background-position: center;
 	background-size: cover;
@@ -129,25 +118,27 @@ input, textarea {
 	padding: 100px 25px;
 }
 
+/*SERVICES*/
 #services .glyphicon {
 	color: #e4742e;
 	font-size: 50px;
 }
-
 #services .row {
 	padding: 25px 0px;
 }
 
+/*SUBHAUL*/
 #subhaul li a {
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
+/*TESTIMONIALS*/
 #testimonials {
 	padding-bottom: 70px;
 }
 
+/*EQUIPMENT*/
 .thumbnail {
-	/*width: 300px;*/
 	height: 200px;
 	display: flex;
 	justify-content: center;
@@ -159,6 +150,7 @@ input, textarea {
 	width: 100%;
 }
 
+/*TEAM*/
 .profpic {
 	padding: 0;
 	/*max-width: 150px;*/
@@ -188,22 +180,24 @@ input, textarea {
 	opacity: 0.8;
 }
 
+/*FOOTER*/
+#footer {
+	box-shadow: 3px 3px 20px #888888;
+}
 #footer .glyphicon {
 	color: #000000;
 	font-size: 50px;
 }
-
 #contact h2{
 	padding-bottom: 25px;
 }
-
 .form-group {
 	padding: 0px;
 }
-
 #message {
 	margin-bottom: 25px;
 }
+
 
 .carousel-control.right, .carousel-control.left {
 	background-image: none;
@@ -220,10 +214,26 @@ input, textarea {
 	background-color: #e4742e;
 }
 
+@media screen and (max-width: 957px) {
+	#visible {
+		padding-bottom: 7px;
+	}
+	.navbar {
+		padding: 0;
+	}
+	.collapse {
+		padding: 7px;
+	}
+	.navbar li a {
+		font-weight: 700;
+		font-size: 12px;
+		padding: 10px 0px;
+	}
+}
+
 @media screen and (max-width: 768px) {
-	.col-sm-4 {
-		text-align: center;
-		margin: 25px 0;
+	h1 {
+		font-size: 50px;
 	}
 	#title {
 		text-align: center;
@@ -240,8 +250,9 @@ input, textarea {
 		padding: 0;
 	}
 	.profile {
+		/*display*/
+		padding: 10px 10%;
 		justify-content: flex-start;
-		padding-left: 20%;
 	}
 	#linkedin {
 		width: auto;

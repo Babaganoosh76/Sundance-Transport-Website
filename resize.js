@@ -1,13 +1,3 @@
-var hw, hh, hp;
-
-// $(window).on("load resize", function(){
-// 	hw = $('#title').width();
-// 	hh = hw/8;
-// 	hp = hh/2;
-// 	// $('#title').height(hh);
-// 	$('#title').css({"padding": + hp +"px 25px"});
-// });
-
 function getVisible() {    
     var $el = $('#footer'),
         scrollTop = $(this).scrollTop(),
@@ -17,18 +7,19 @@ function getVisible() {
         visibleTop = elTop < scrollTop ? scrollTop : elTop,
         visibleBottom = elBottom > scrollBot ? scrollBot : elBottom,
         visible = (visibleTop - visibleBottom)*(-1);
-        dif = window.innerHeight - $('#banner').height() - visible; //Distane between banner and contact
+        dif = window.innerHeight - $('#banner1').height() - visible; //Distane between banner and contact
     if (dif<0)
-    	$("#banner").css({"top": + dif + "px"});
+    	$("#banner1").css({"top": + dif + "px"});
     else
-		$("#banner").css({"top": "0px"});
+		$("#banner1").css({"top": "0px"});
 }
 $(window).on('scroll', getVisible);
 
-
-
-var w;
 $(window).on("load resize", function(){
-    w = $('#two.spinner').width();
+    var w = $('#two.spinner').width();
     $('#two.spinner').css({"height": w/2 +"px"});
+});
+
+$(window).on("load", function(){
+    $('.sunburst').attr("src", "spinner/sunburst.png");
 });
