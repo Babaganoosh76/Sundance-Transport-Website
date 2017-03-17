@@ -21,5 +21,5 @@ $(window).on("load resize", function(){
 });
 
 $(window).on("load", function(){
-    $('.sunburst').attr("src", "spinner/sunburst.png");
+    $('.sunburst').attr("src", "pics/sunburst.png");
 });
