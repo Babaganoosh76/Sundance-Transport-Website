@@ -12,7 +12,7 @@
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" type="text/css" href="company.css">
+  <!-- <link rel="stylesheet" type="text/css" href="company.css"> -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Orbitron:400,700" rel="stylesheet">
  
   <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
@@ -46,7 +46,7 @@
       </button>
       <a class="navbar-brand" href="#myPage">
         <div class="spinner" id="one">
-          <img src="spinner/sunburst.png" class="sunburst" height="100">
+          <img src="pics/sunburst.png" class="sunburst" height="100">
         </div>
       </a>
     </div>
@@ -67,7 +67,7 @@
 <div id="banner1" class="col-sm-3 hidden-xs">
   <div id="visible">
     <div class="spinner" id="two">
-      <img src="spinner/blank.png" class="sunburst">
+      <img src="pics/blank.png" class="sunburst">
     </div>
     <nav class="navbar">
       <div class="navbar-header">
@@ -93,16 +93,14 @@
 </div>
 
 <div id="title" class="container-fluid">
-  <div class="col-sm-3"></div>
-  <div class="col-sm-9">
+  <div class="col-sm-offset-3 col-sm-9">
     <h1>Sundance Transport, Inc.</h1>
   </div>
 </div>
 
 <!-- Services -->
 <div id="services" class="container-fluid text-center bg-white">
-  <div class="col-sm-3"></div>
-  <div class="col-sm-9">
+  <div class="col-sm-offset-3 col-sm-9">
     <h2>SERVICES</h2>
     <div class="row slideanim slide">
       <div class="col-sm-4">
@@ -164,8 +162,7 @@
 <!-- About Us -->
 <div id="about" class="container-fluid bg-grey">
   <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-9">
+    <div class="col-sm-offset-3 col-sm-9">
       <h2>A Little Bit About Us</h2>
       <ul>
         <li>Sundance Transport is a family owned business based in El Dorado Hills, California.</li>
@@ -181,8 +178,7 @@
 <!-- Subhaul Info -->
 <div id="subhaul" class="container-fluid bg-white">
   <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-9">
+    <div class="col-sm-offset-3 col-sm-9">
       <h2>Subhaul Information</h2>
       <h4>Sundance Transport is always looking for qualified Owner-Operators. If you are interested in hauling for us, please provide the following:</h4>
       <ul>
@@ -208,13 +204,12 @@
 <!-- Equipment -->
 <div id="equipment" class="container-fluid text-center bg-grey">
   <div class="row text-center">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-9">
+    <div class="col-sm-offset-3 col-sm-9">
       <h2>Equipment</h2>
       <div class="col-sm-4">
         <div id="truckCarousel" class="carousel" data-ride="carousel">
           
-          <div class="carousel-inner thumbnail" role="listbox">
+          <div class="carousel-inner thumbnail" role="listbox" onclick="openModal(this)">
             <div class="item active">
               <img src="pics/trucks/truck_1.jpg" alt="Truck">
             </div>
@@ -237,13 +232,14 @@
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
+
         </div>
         <h3>Tractors</h3>
       </div>
       <div class="col-sm-4">
         <div id="trailerCarousel" class="carousel slide" data-ride="carousel">
           
-          <div class="carousel-inner thumbnail" role="listbox">
+          <div class="carousel-inner thumbnail" role="listbox" onclick="openModal(this)">
             <div class="item active">
               <img src="pics/trailers/trailer_1.jpg" alt="Trailers">
             </div>
@@ -272,7 +268,7 @@
       <div class="col-sm-4">
         <div id="liftCarousel" class="carousel slide" data-ride="carousel">
           
-          <div class="carousel-inner thumbnail" role="listbox">
+          <div class="carousel-inner thumbnail" role="listbox" onclick="openModal(this)">
             <div class="item active">
               <img src="pics/forklifts/lift_1.jpg" alt="Forklift">
             </div>
@@ -302,11 +298,31 @@
   </div>
 </div>
 
+<div id="myModal" class="modal">
+  <span id="close" class="glyphicon glyphicon-remove" aria-hidden="true" onclick="closeModal(this)"></span>
+  <div class="modal-content">
+
+    <div id="next" class="arrow" onclick="plusSlides(1)">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </div>
+    <div id="prev" class="arrow" onclick="plusSlides(-1)">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    </div>
+
+    <div class="numberText">1 / 4</div>
+
+    <div class="mySlides image">
+      <div style="position:absolute; top:0; width:50px; height:50px;"></div>
+      <img src="">
+    </div>
+
+  </div>
+</div>
+
 <!-- Meet the Team -->
 <div id="team" class="container-fluid bg-white">
   <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-9 text-center">
+    <div class="col-sm-offset-3 col-sm-9 text-center">
       <h2>Meet the Team</h2>
       <div class="col-sm-6 col-xs-12 profile">
        <div class="col-sm-4 col-xs-12 profpic">
@@ -338,8 +354,7 @@
 
 <!-- Testimonials -->
 <div id="testimonials" class="container-fluid text-center bg-grey">
-  <div class="col-sm-3"></div>
-  <div class="col-sm-9">
+  <div class="col-sm-offset-3 col-sm-9">
     <h2>What People Are Saying About Us</h2>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       
@@ -406,9 +421,11 @@
   </div>
 </div>
 
-<script type="text/javascript" src="spinner/spinner.js"></script>
-<script type="text/javascript" src="bottom.js"></script>
-<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="js/spinner.js"></script>
+<script type="text/javascript" src="js/lightbox.js"></script>
+
+<!-- <script type="text/javascript" src="bottom.js"></script> -->
+<script type="text/javascript" src="js/resize.js"></script>
 
 </body>
 </html>
