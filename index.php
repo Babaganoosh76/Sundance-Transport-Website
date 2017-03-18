@@ -1,10 +1,16 @@
+<?php 
+  session_start();
+  $userErrors = $_SESSION['userErrors'];
+  $serverErrors = $_SESSION['serverErrors'];
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
   <title>Sundance Transport, Inc</title>
 
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -13,6 +19,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
   <script type="text/javascript" src="js/spinner.js"></script>
   <script type="text/javascript" src="js/lightbox.js"></script>
   <script type="text/javascript" src="js/bottom.js"></script>
@@ -408,18 +415,28 @@
       <p><u>Mailing Address</u><br>Sundance Transport, Inc.<br>P.O. Box 5605<br>El Dorado Hills, CA 95762</p>
       <br>
     </div>
-    <div class="col-sm-6 text-center">
+    <div class="col-sm-6">
       <h2>Get In Touch</h2>
-      <div class="col-sm-12 form-group">
-        <input class="form-control" id="name" name="name" placeholder="Name" type="text" required="">
-      </div>
-      <div class="col-sm-12 form-group">
-        <input class="form-control" id="email" name="email" placeholder="Email address" type="email" required="">
-      </div>
-      <textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>
-      <div class="col-sm-12 form-group">
-        <button class="btn btn-default pull-right" type="submit">Send</button>
-      </div>
+      
+      <form action="redirect.php" method="post">
+        <div class="col-sm-12 form-group">
+          <input class="form-control" name="name" autocomplete="off" placeholder="Name" type="text" required="">
+          <h6>Potential Error</h6>
+        </div>
+        <div class="col-sm-12 form-group">
+          <input class="form-control" name="email" autocomplete="off" placeholder="Email Address" type="email" required="">
+          <h6>Potential Error</h6>
+        </div>
+        <textarea class="form-control" id="message" name="message" placeholder="Message" rows="5" required=""></textarea>
+        <div class="col-sm-12 form-group">
+          <div class="g-recaptcha" data-sitekey="6LcQfRcUAAAAAFwRPsxlWhcZDRMSmVpg5aSeyRFx"></div>
+          <h6 style="text-align: center;">Potential Error</h6>
+        </div>
+        <div class="col-sm-12 form-group text-center">
+          <button class="btn btn-default" type="submit">Send</button>
+        </div>
+      </form>
+
     </div>
   </div>
 </div>

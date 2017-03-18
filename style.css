@@ -21,6 +21,13 @@ h3 {
 h4 {
 	font-size: 16px;
 }
+h6 {
+	display: none;
+	text-align: left;
+	margin: 5px;
+	font-size: 10px;
+	color: #ff0000;
+}
 body {
 	line-height: 1.8;
 	background-color: #ffffff;
@@ -149,7 +156,7 @@ h1, h2, h3, .navbar li a {
 .thumbnail img {
 	width: 100%;
 }
-.item:hover {
+#equipment .item:hover {
 	cursor: pointer;
 }
 
@@ -239,8 +246,6 @@ h1, h2, h3, .navbar li a {
     margin-left: 50px;
 }
 
-
-
 /*TEAM*/
 .profpic {
 	padding: 0;
@@ -272,6 +277,9 @@ h1, h2, h3, .navbar li a {
 }
 
 /*FOOTER*/
+#footer h2{
+	text-align: center;
+}
 #footer {
 	box-shadow: 3px 3px 20px #888888;
 }
@@ -282,11 +290,19 @@ h1, h2, h3, .navbar li a {
 #contact h2{
 	padding-bottom: 25px;
 }
+.panel {
+	background-color: #ffafaf;
+}
 .form-group {
 	padding: 0px;
 }
 #message {
-	margin-bottom: 25px;
+	margin-bottom: 15px;
+}
+.g-recaptcha {
+	width: 302px;
+	height: 78px;
+	margin: auto;
 }
 
 
