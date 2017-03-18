@@ -417,29 +417,47 @@
     </div>
     <div class="col-sm-6">
       <h2>Get In Touch</h2>
-      
+      <h6 id="setError" style="text-align: center; margin-bottom: 10px;">Please make sure all fields are completed.</h6>
       <form action="redirect.php" method="post">
         <div class="col-sm-12 form-group">
-          <input class="form-control" name="name" autocomplete="off" placeholder="Name" type="text" required="">
-          <h6>Potential Error</h6>
+          <input class="form-control" name="name" autocomplete="off" placeholder="Name"> <!-- type="text" required=""> -->
+          <h6 id="nameError">Please provide your name.</h6>
         </div>
         <div class="col-sm-12 form-group">
-          <input class="form-control" name="email" autocomplete="off" placeholder="Email Address" type="email" required="">
-          <h6>Potential Error</h6>
+          <input class="form-control" name="email" autocomplete="off" placeholder="Email Address"> <!-- type="email" required=""> -->
+          <h6 id="emailError">Please provide a valid email address.</h6>
         </div>
-        <textarea class="form-control" id="message" name="message" placeholder="Message" rows="5" required=""></textarea>
+        <div class="col-sm-12 form-group">
+          <textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>
+          <h6 id="messageError">Please provide a message.</h6>
+        </div>
         <div class="col-sm-12 form-group">
           <div class="g-recaptcha" data-sitekey="6LcQfRcUAAAAAFwRPsxlWhcZDRMSmVpg5aSeyRFx"></div>
-          <h6 style="text-align: center;">Potential Error</h6>
+          <h6 id="recaptchaError" style="text-align: center;">Don't forget to check the recaptcha!</h6>
         </div>
         <div class="col-sm-12 form-group text-center">
           <button class="btn btn-default" type="submit">Send</button>
         </div>
       </form>
-
+      
     </div>
   </div>
 </div>
 
 </body>
 </html>
+
+<?php  
+  if(in_array('name', $userErrors)){
+    echo '<script type="text/javascript">$("#nameError").show();</script>';
+  }
+  if(in_array('email', $userErrors)){
+    echo '<script type="text/javascript">$("#emailError").show();</script>';
+  }
+  if(in_array('message', $userErrors)){
+    echo '<script type="text/javascript">$("#messageError").show();</script>';
+  }
+  if(in_array('recaptcha', $userErrors)){
+    echo '<script type="text/javascript">$("#recaptchaError").show();</script>';
+  }
+?>

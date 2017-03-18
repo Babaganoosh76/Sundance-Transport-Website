@@ -296,9 +296,9 @@ h1, h2, h3, .navbar li a {
 .form-group {
 	padding: 0px;
 }
-#message {
+/*#message {
 	margin-bottom: 15px;
-}
+}*/
 .g-recaptcha {
 	width: 302px;
 	height: 78px;
