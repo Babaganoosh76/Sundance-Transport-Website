@@ -14,11 +14,11 @@
 	    
 	    foreach($fields as $field=>$data){
 	        if(empty($data)){
-	            $userErrors[] = $field;
+	            $userErrors[] ='The '.$field . ' field is empty.';
 	        }
 	    }
 	} else {
-		$userErrors[] = 'set';
+		$userErrors[] = 'Not all fields were successfully set.';
 	}
 
 	// Recaptcha
@@ -47,7 +47,7 @@
     $res = post_captcha($_POST['g-recaptcha-response']);
 
     if (!$res['success']) {
-        $userErrors[] = "recaptcha";
+        $userErrors[] = "Recaptcha test failed. Don't forget to check the recaptcha!";
     }
 
 	$_SESSION['fields'] = $fields;
@@ -65,37 +65,40 @@
     $m->SMTPSecure='ssl';
     $m->Port=465;
 
+    print_r($userErrors);
+
 	if(empty($userErrors) && empty($serverErrors)){
         $m->isHTML();
         $m->Subject ="You've recieved a contact form!";
         $m->Body='From: '.$fields['name'].' ('.$fields['email'].')<p>'.$fields['message'].'</p>';
         $m->FromName=$fields['name'];
-        $m->AddAddress('send.to.sundancetransport@gmail.com','Sundance Transport');
+        // $m->AddAddress('send.to.sundancetransport@gmail.com','Sundance Transport');
         if ($m->send()) {
-            header('Location: _thanks.php');
+            // header('Location: _thanks.php');
             die();
         } else{
             print_r('fail');
-            $serverErrors[]="fail-mail";
+            $serverErrors[]="Sorry, could not send email. Try again later.";
         }
     }
     if(empty($serverErrors)){
-        header('Location: index.php#contact');
+        // header('Location: index.php#contact');
+        print_r('user shit');
         die();
     } 
     if(!empty($serverErrors)){
+        print_r('serverErrors');
         $m->isHTML();
         $m->Subject = "There's an error on sundancetransportinc.com";
-        $m->Body='You know what to do.';
+        $m->Body='Errors!';
         $m->FromName='Sundance Transport';
         $m->AddAddress('amiller5233@gmail.com','Adam Miller');
         if ($m->send()) {
-            $serverErrors[]="auto";
+            $serverErrors[]="If your seeing this, the webmaster has already been notified of the problem, and it will be seen to as soon as possible.";
         } else {
-            $serverErrors[]="manual";
+            $serverErrors[]="An email to the webmaster (amiller5233@gmail.com) would be greatly appriciated!";
         }
-        $_SESSION['serverErrors'] = $serverErrors;
-    	header('Location: _error.php');
+    	// header('Location: _error.php');
     } else {
         header('Location: _error.php');
     }
