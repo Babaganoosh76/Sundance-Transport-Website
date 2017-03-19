@@ -146,7 +146,7 @@ h1, h2, h3, .navbar li a {
 
 /*EQUIPMENT*/
 .thumbnail {
-	height: 200px;
+	/*height: 200px;*/
 	display: flex;
 	justify-content: center;
 	align-items:center;
@@ -321,23 +321,6 @@ h1, h2, h3, .navbar li a {
 	background-color: #e4742e;
 }
 
-@media screen and (max-width: 957px) {
-	#visible {
-		padding-bottom: 7px;
-	}
-	.navbar {
-		padding: 0;
-	}
-	.collapse {
-		padding: 7px;
-	}
-	.navbar li a {
-		font-weight: 700;
-		font-size: 12px;
-		padding: 10px 0px;
-	}
-}
-
 .slideanim {
 	visibility:hidden;
 }
@@ -367,6 +350,20 @@ h1, h2, h3, .navbar li a {
     to {
     	transform:scale(1);
     }
+}
+
+@media screen and (max-width: 957px) {
+	#visible {
+		padding-bottom: 7px;
+	}
+	.navbar {
+		padding: 0;
+	}
+	.navbar li a {
+		font-weight: 700;
+		font-size: 12px;
+		padding: 10px 0px;
+	}
 }
 
 @media screen and (max-width: 768px) {
