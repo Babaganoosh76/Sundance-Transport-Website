@@ -1,5 +1,7 @@
 <?php 
   session_start();
+  require_once "lib/security.php";
+  $fields = isset($_SESSION['fields']) ? $_SESSION['fields'] : [];
   $userErrors = isset($_SESSION['userErrors']) ? $_SESSION['userErrors'] : [];
   $serverErrors = isset($_SESSION['serverErrors']) ? $_SESSION['serverErrors'] : [];
 ?>
@@ -420,15 +422,15 @@
       <h6 id="setError" style="text-align: center; margin-bottom: 10px;">Please make sure all fields are completed.</h6>
       <form action="redirect.php" method="post">
         <div class="col-sm-12 form-group">
-          <input class="form-control" name="name" autocomplete="off" placeholder="Name" type="text" required>
+          <input class="form-control" name="name" autocomplete="off" placeholder="Name" type="text" required <?php echo isset ($fields['name'])? 'value="'.security($fields['name']).'"':''?>>
           <h6 id="nameError">Please provide your name.</h6>
         </div>
         <div class="col-sm-12 form-group">
-          <input class="form-control" name="email" autocomplete="off" placeholder="Email Address" type="email" required>
+          <input class="form-control" name="email" autocomplete="off" placeholder="Email Address" type="email" required <?php echo isset ($fields['email'])? 'value="'.security($fields['email']).'"':''?>>
           <h6 id="emailError">Please provide a valid email address.</h6>
         </div>
         <div class="col-sm-12 form-group">
-          <textarea class="form-control" id="message" name="message" placeholder="Message" rows="5" required></textarea>
+          <textarea class="form-control" id="message" name="message" placeholder="Message" rows="5" required><?php echo isset ($fields['message'])? security($fields['message']):''?></textarea>
           <h6 id="messageError">Please provide a message.</h6>
         </div>
         <div class="col-sm-12 form-group">
@@ -461,6 +463,7 @@
     echo '<script type="text/javascript">$("#recaptchaError").show();</script>';
   }
 
+  unset($_SESSION['fields']);
   unset($_SESSION['userErrors']);
   unset($_SESSION['serverErrors']);
 ?>

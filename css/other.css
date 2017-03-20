@@ -101,9 +101,6 @@ p {
 }
 
 @media screen and (max-width: 991px) {
-	html { 
-		background: red; 
-	}
 	h1 {
 		font-size: 30px;
 	}
