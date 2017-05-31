@@ -3,27 +3,15 @@
 	$fields = isset($_SESSION['fields']) ? $_SESSION['fields'] : [];
 ?>
 
-<!DOCTYPE HTML>
-
+<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<meta charset="utf-8">
 	<title>Thank You!</title>
-	<link rel="stylesheet" type="text/css" href="css/other.css">
+	<link rel="stylesheet" type="text/css" href="css/redirect.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Orbitron:400,700" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-	<script type="text/javascript">
-		var secs = 10;
-		var countdown = function(){
-			setInterval(function(){
-				$('#top').text("You will be redirected back to the main page in " + (--secs) + " seconds.");
-			}, 1000);
-			setTimeout(function (){
-				window.location.href= 'index.php#footer'
-			},	10000);
-		};
-	</script>
+	<script type="text/javascript" src="js/countdown.js"></script>
 	<script type="text/javascript">
 		var w;
 		$(window).on("load resize", function(){
@@ -37,7 +25,6 @@
 </head>
 
 <body onload="countdown()">
-	
 	<div id="letter">
 		<div id="spinnerContainer">
 			<h4>I</h4>
@@ -52,11 +39,11 @@
 	</div>
 	<div id="countDiv">
 		<h6 id="top">You will be redirected back to the main page in 10 seconds.</h6>
-		<h6>If the page fails to redirect, click <a href="index.php#footer">here</a>.</h6>
+		<h6>If the page fails to redirect, click <a href="./">here</a>.</h6>
 	</div>
 </body>
 </html>
 
 <?php  
-  unset($_SESSION['fields']);
+	unset($_SESSION['fields']);
 ?>

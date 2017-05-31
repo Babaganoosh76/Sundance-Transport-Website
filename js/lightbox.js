@@ -2,6 +2,11 @@ var slideIndex = 1;
 var $currentDiv;
 var cur, tot;
 
+$(document).on('click','.image',function() {
+    $currentDiv = this;
+    showImg();
+});
+
 function openModal(d) {
 	var divs = d.children;
 	for (var i = 0; i < divs.length; i++) {
